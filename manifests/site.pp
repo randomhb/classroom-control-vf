@@ -49,5 +49,4 @@ node default {
     content => "This is todays MOTD\n",
     owner => 'root',
   }
-  }
 }
