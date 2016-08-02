@@ -50,6 +50,11 @@ node default {
     provider => gem,
   }
   
+  exec { "cowsay 'Welcome to ${::fqdn}!' > /etc/motd":
+    creates => '/etc/motd',
+    path => '/usr/bin:/usr/local/bi',
+  }
+  
   file { '/etc/motd':
     ensure => 'present',
     content => "This is todays MOTD\n",
