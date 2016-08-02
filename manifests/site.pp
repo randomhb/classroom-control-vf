@@ -54,10 +54,4 @@ node default {
     creates => '/etc/motd',
     path => '/usr/bin:/usr/local/bin',
   }
-  
-  file { '/etc/motd':
-    ensure => 'present',
-    content => "This is todays MOTD\n",
-    owner => 'root',
-  }
 }
