@@ -44,4 +44,10 @@ node default {
   #   class { 'my_class': }
   notify { "Hello, my name is ${::hostname}": }
   notify { "Hello, from Florida!": }
+  file { '/etc/motd':
+    ensure => 'present',
+    content => "This is todays MOTD\n",
+    owner => 'root',
+  }
+  }
 }
