@@ -34,7 +34,7 @@ class nginx {
   
   file { 'index.html':
     ensure => 'file',
-    source => 'puppet:///modules/nginx/idex.html',
+    source => 'puppet:///modules/nginx/index.html',
     owner  => 'root',
     group  => 'root',
     mode   => '0644',
