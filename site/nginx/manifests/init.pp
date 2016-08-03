@@ -1,32 +1,32 @@
 class nginx {
 
-  file { '/etc/nginx/conf/default.conf':
+  file { '/etc/nginx/conf/conf.d/default.conf':
     ensure => present,
     source => 'puppet:///modules/nginx/default.conf',
     owner => 'root',
     group => 'root',
     mode => '0644',
-    path => '/etc/nginx/conf/default.conf'
+    path => '/etc/nginx/conf/conf.d/default.conf'
     require => Package['nginx'],
   }
   
-  file { '/etc/nginx/conf/nginx.conf':
+  file { '/etc/nginx/nginx.conf':
     ensure => present,
     source => 'puppet:///modules/nginx/nginx.conf',
     owner => 'root',
     group => 'root',
     mode => '0644',
-    path => '/etc/nginx/conf/nginx.conf'
+    path => '/etc/nginx/nginx.conf'
     require => Package['nginx'],
   }
   
-  file { '/etc/nginx/html/index.html':
+  file { '/var/www/index.html':
     ensure => present,
-    source => 'puppet:///modules/nginx/html/idex.html',
+    source => 'puppet:///modules/nginx/idex.html',
     owner => 'root',
     group => 'root',
     mode => '0644',
-    path => '/etc/nginx/html/index.html'
+    path => '/var/www/index.html'
     require => Package['nginx'],
   }
   
