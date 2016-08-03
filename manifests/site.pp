@@ -44,20 +44,3 @@ node default {
   #   class { 'my_class': }
   notify { "Hello, my name is ${::hostname}": }
 }
-
-node "randomhb.puppetlabs.vm" {
-
-include examples::fundamentals
-include users
-include skeleton
-  
-  exec { "cowsay 'Welcome to ${::fqdn}!' > /etc/motd":
-    creates => '/etc/motd',
-    path    => '/usr/bin:/usr/local/bin',
-  }
-  
-  host { 'pirate.puppetlabs.vm':
-    ensure => present,
-    ip     => '127.0.0.1',
-  }
-}
