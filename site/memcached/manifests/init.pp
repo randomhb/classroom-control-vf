@@ -13,7 +13,7 @@ class memcached {
     require => Package['memcached'],
   }
   
-  servicve { 'memcached':
+  service { 'memcached':
     ensure => running,
     enable => true,
     require => File['/etc/sysconfig/memcached'],
