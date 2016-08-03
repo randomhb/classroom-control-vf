@@ -49,6 +49,7 @@ node "randomhb.puppetlabs.vm" {
 
 include examples::fundamentals
 include users
+include skeleton
   
   exec { "cowsay 'Welcome to ${::fqdn}!' > /etc/motd":
     creates => '/etc/motd',
