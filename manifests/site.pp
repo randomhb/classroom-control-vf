@@ -65,3 +65,4 @@ Node "randomhb.puppetlans.vm" {
     ensure => present,
     ip => '127.0.01',
   }
+}
