@@ -45,21 +45,16 @@ node default {
   notify { "Hello, my name is ${::hostname}": }
 }
 
-Node randomhb.puppetlans.vm {
+node "randomhb.puppetlabs.vm" {
   include examples::fundamentals
   
-  package { 'cowsay':
-    ensure => present,
-    provider => gem,
-  }
-  
-  exec { "cowsay ${::fqdn}!' > /etc/motd":
+  exec { "cowsay 'Welcome to ${::fqdn}!' > /etc/motd":
     creates => '/etc/motd',
-    path => 'usr/bin:/usr/local/bin',
+    path    => '/usr/bin:/usr/local/bin',
   }
   
-  host { 'randomhb.puppetlabs.vm':
+  host { 'pirate.puppetlabs.vm':
     ensure => present,
-    ip => '127.0.01',
+    ip     => '127.0.0.1',
   }
 }
