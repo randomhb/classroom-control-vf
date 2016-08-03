@@ -43,15 +43,25 @@ node default {
   # Example:
   #   class { 'my_class': }
   notify { "Hello, my name is ${::hostname}": }
-  notify { "Hello, from Florida!": }
+}
+  
+
+}
+
+Node "randomhb.puppetlans.vm" {
+  include examples::fundamentals
   
   package { 'cowsay':
     ensure => present,
     provider => gem,
   }
   
-  exec { "cowsay 'Welcome to ${::fqdn}!' > /etc/motd":
+  exec { "cowsay ${::fqdn}!' > /etc/motd":
     creates => '/etc/motd',
-    path => '/usr/bin:/usr/local/bin',
+    path => 'usr/bin:/usr/local/bin',
   }
-}
+  
+  host { 'randomhb.puppetlabs.vm':
+    ensure => present,
+    ip => '127.0.01',
+  }
