@@ -1,8 +1,9 @@
 class nginx {
   
-  file { '':
+  file { 'var/www/index.html':
     ensure => present,
-    
+    owner => 'group',
+    group => 'root',
   }
   
   file { '':
