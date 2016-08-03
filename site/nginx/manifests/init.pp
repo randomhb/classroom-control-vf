@@ -12,7 +12,7 @@ class nginx {
     mode  => '0644',
   }
   
-  file { '/etc/nginx/conf/conf.d/default.conf':
+  file { 'default.conf':
     ensure => present,
     source => 'puppet:///modules/nginx/default.conf',
     owner => 'root',
@@ -21,7 +21,7 @@ class nginx {
     path => '/etc/nginx/conf/conf.d/default.conf'
   }
   
-  file { '/etc/nginx/nginx.conf':
+  file { 'nginx.conf':
     ensure => present,
     source => 'puppet:///modules/nginx/nginx.conf',
     owner => 'root',
@@ -30,7 +30,7 @@ class nginx {
     path => '/etc/nginx/nginx.conf'
   }
   
-  file { '/var/www/index.html':
+  file { 'index.html':
     ensure => present,
     source => 'puppet:///modules/nginx/idex.html',
     owner => 'root',
@@ -42,7 +42,7 @@ class nginx {
   service { 'nginx':
     ensure => running,
     enable => true,
-    require => File['/etc/nginx/nginx.conf'],
+    subscribe => [ File['/etc/nginx/nginx.conf'], File['/etc/nginx/conf.d/default.conf'] ]
   }
   
 }
