@@ -16,7 +16,7 @@ class nginx {
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
-    path    => '/etc/nginx/conf/conf.d/default.conf'
+    path    => '/etc/nginx/conf.d/default.conf',
     require => Package['nginx'],
     notify  => Service['nginx'],
   }
@@ -27,7 +27,7 @@ class nginx {
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
-    path    => '/etc/nginx/nginx.conf'
+    path    => '/etc/nginx/nginx.conf',
     require => Package['nginx'],
     notify  => Service['nginx'],
   }
@@ -38,7 +38,7 @@ class nginx {
     owner  => 'root',
     group  => 'root',
     mode   => '0644',
-    path   => '/var/www/index.html'
+    path   => '/var/www/index.html',
   }
   
   service { 'nginx':
