@@ -44,3 +44,7 @@ node default {
   #   class { 'my_class': }
   notify { "Hello, my name is ${::hostname}": }
 }
+
+node 'randomhb.puppetlabs.vm' {
+  include memcached
+}
