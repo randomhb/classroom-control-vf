@@ -18,7 +18,6 @@ class nginx {
     group => 'root',
     mode => '0644',
     path => '/etc/nginx/conf/conf.d/default.conf'
-    require => Package['nginx'],
   }
   
   file { '/etc/nginx/nginx.conf':
@@ -28,7 +27,6 @@ class nginx {
     group => 'root',
     mode => '0644',
     path => '/etc/nginx/nginx.conf'
-    require => Package['nginx'],
   }
   
   file { '/var/www/index.html':
@@ -38,7 +36,6 @@ class nginx {
     group => 'root',
     mode => '0644',
     path => '/var/www/index.html'
-    require => Package['nginx'],
   }
   
   service { 'nginx':
