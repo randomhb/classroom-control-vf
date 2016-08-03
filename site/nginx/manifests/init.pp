@@ -1,5 +1,9 @@
 class nginx {
 
+  package { 'nginx':
+    ensure => present,
+  }
+  
   file { '/etc/nginx/conf/conf.d/default.conf':
     ensure => present,
     source => 'puppet:///modules/nginx/default.conf',
@@ -34,10 +38,6 @@ class nginx {
     ensure => running,
     enable => true,
     require => File['/etc/nginx/conf/nginx.conf'],
-  }
-  
-  package { 'nginx':
-    ensure => present,
   }
   
 }
