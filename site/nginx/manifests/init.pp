@@ -9,7 +9,6 @@ class nginx {
     ensure => directory,
     owner => 'root',
     group => 'root',
-    mode  => '0644',
   }
   
   file { 'default.conf':
