@@ -11,7 +11,7 @@ class nginx {
   }
   
   file { 'default.conf':
-    ensure => present,
+    ensure => file,
     source => 'puppet:///modules/nginx/default.conf',
     owner => 'root',
     group => 'root',
@@ -22,7 +22,7 @@ class nginx {
   }
   
   file { 'nginx.conf':
-    ensure => present,
+    ensure => file,
     source => 'puppet:///modules/nginx/nginx.conf',
     owner => 'root',
     group => 'root',
@@ -33,7 +33,7 @@ class nginx {
   }
   
   file { 'index.html':
-    ensure => present,
+    ensure => file,
     source => 'puppet:///modules/nginx/idex.html',
     owner => 'root',
     group => 'root',
