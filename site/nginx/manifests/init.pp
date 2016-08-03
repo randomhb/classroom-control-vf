@@ -5,13 +5,13 @@ class nginx {
   }
   
   file { '/var/www':
-    ensure => directory,
+    ensure => 'directory',
     owner => 'root',
     group => 'root',
   }
   
   file { 'default.conf':
-    ensure => file,
+    ensure => 'file',
     source => 'puppet:///modules/nginx/default.conf',
     owner => 'root',
     group => 'root',
@@ -22,7 +22,7 @@ class nginx {
   }
   
   file { 'nginx.conf':
-    ensure => file,
+    ensure => 'file',
     source => 'puppet:///modules/nginx/nginx.conf',
     owner => 'root',
     group => 'root',
@@ -33,7 +33,7 @@ class nginx {
   }
   
   file { 'index.html':
-    ensure => file,
+    ensure => 'file',
     source => 'puppet:///modules/nginx/idex.html',
     owner => 'root',
     group => 'root',
