@@ -17,6 +17,8 @@ class nginx {
     group => 'root',
     mode => '0644',
     path => '/etc/nginx/conf/conf.d/default.conf'
+    require   => Package['nginx'],
+    notify    => Service['nginx'],
   }
   
   file { 'nginx.conf':
@@ -26,6 +28,8 @@ class nginx {
     group => 'root',
     mode => '0644',
     path => '/etc/nginx/nginx.conf'
+    require   => Package['nginx'],
+    notify    => Service['nginx'],
   }
   
   file { 'index.html':
@@ -40,7 +44,7 @@ class nginx {
   service { 'nginx':
     ensure => running,
     enable => true,
-    subscribe => [ File['/etc/nginx/nginx.conf'], File['/etc/nginx/conf.d/default.conf'] ]
+    hasrestart => 'true',
   }
   
 }
