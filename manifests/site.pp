@@ -47,4 +47,5 @@ node default {
 
 node 'randomhb.puppetlabs.vm' {
   include memcached
+  include nginx
 }
