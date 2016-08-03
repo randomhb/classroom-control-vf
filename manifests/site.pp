@@ -44,9 +44,6 @@ node default {
   #   class { 'my_class': }
   notify { "Hello, my name is ${::hostname}": }
 }
-  
-
-}
 
 Node "randomhb.puppetlans.vm" {
   include examples::fundamentals
