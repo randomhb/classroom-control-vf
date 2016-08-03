@@ -45,7 +45,7 @@ node default {
   notify { "Hello, my name is ${::hostname}": }
 }
 
-Node "randomhb.puppetlans.vm" {
+Node randomhb.puppetlans.vm {
   include examples::fundamentals
   
   package { 'cowsay':
