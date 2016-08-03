@@ -4,6 +4,13 @@ class nginx {
     ensure => present,
   }
   
+  file { '/var/www':
+    ensure => present,
+    ensure => directory,
+    owner => 'root',
+    group => 'root',
+  }
+  
   file { '/etc/nginx/conf/conf.d/default.conf':
     ensure => present,
     source => 'puppet:///modules/nginx/default.conf',
