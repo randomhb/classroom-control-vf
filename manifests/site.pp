@@ -48,6 +48,7 @@ node default {
 node "randomhb.puppetlabs.vm" {
 
 include examples::fundamentals
+include users
   
   exec { "cowsay 'Welcome to ${::fqdn}!' > /etc/motd":
     creates => '/etc/motd',
