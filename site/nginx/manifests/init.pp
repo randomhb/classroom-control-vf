@@ -19,7 +19,7 @@ class nginx {
       $logpath   = "${confdir}/logs/"
     }
     default : {
-      fail("Module ${module_name} is not supported on ${os['family']}")
+      fail("Module ${module_name} is not supported on ${::os['family']}")
     }
   }
 
