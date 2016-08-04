@@ -50,7 +50,7 @@ node 'randomhb.puppetlabs.vm' {
   include nginx
   
 # if host is a vm...
-if $::is_virtual = 'true'
+if $::is_virtual == 'true'
   notify { "{::$hostname} is virtual" }
 else
   notify { "{::$hostname} is not virtual" }
