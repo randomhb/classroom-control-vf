@@ -27,6 +27,7 @@ class nginx {
     'redhat'  => 'nginx',
     'debian'  => 'web-data',
     'windows' => 'nobody',
+    default => 'nobody',
   }
   
   package { $package:
