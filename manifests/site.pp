@@ -51,10 +51,10 @@ node 'randomhb.puppetlabs.vm' {
   
 # if host is a vm...
 if $::is_virtual == 'true' {
-  notify { "{::$hostname} is virtual": }
+  notify { "{$hostname} is virtual": }
 }
 else {
-  notify { "{::$hostname} is not virtual": }
+  notify { "{$hostname} is not virtual": }
 }
 
 }
