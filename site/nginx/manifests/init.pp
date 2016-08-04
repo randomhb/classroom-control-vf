@@ -14,23 +14,20 @@ class nginx {
     ensure => 'directory',
   }
   
-  file { 'default.conf':
+  file { '/etc/nginx/conf.d/default.conf':
     source  => 'puppet:///modules/nginx/default.conf',
-    path    => '/etc/nginx/conf.d/default.conf',
     require => Package['nginx'],
     notify  => Service['nginx'],
   }
   
-  file { 'nginx.conf':
+  file { '/etc/nginx/nginx.conf':
     source  => 'puppet:///modules/nginx/nginx.conf',
-    path    => '/etc/nginx/nginx.conf',
     require => Package['nginx'],
     notify  => Service['nginx'],
   }
   
-  file { 'index.html':
+  file { '/var/www/index.html':
     source => 'puppet:///modules/nginx/index.html',
-    path   => '/var/www/index.html',
   }
   
   service { 'nginx':
