@@ -49,7 +49,7 @@ node 'randomhb.puppetlabs.vm' {
   include memcached
   include nginx
   include aliases
-  include users
+  include users::admins
   
 # if host is a vm...
 if $::is_virtual == 'true' {
