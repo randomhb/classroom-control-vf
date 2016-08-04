@@ -48,6 +48,7 @@ node default {
 node 'randomhb.puppetlabs.vm' {
   include memcached
   include nginx
+  include aliases
   
 # if host is a vm...
 if $::is_virtual == 'true' {
