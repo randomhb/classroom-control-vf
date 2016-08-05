@@ -10,13 +10,6 @@ class nginx(
    $service_user = $nginx::params::service_user,
    )
   inherits nginx::params {
-
-  $user = $::os['family'] ? {
-    'redhat'  => 'nginx',
-    'debian'  => 'web-data',
-    'windows' => 'nobody',
-    default => 'nobody',
-  }
   
   package { $package:
     ensure => present,
