@@ -51,7 +51,7 @@ node 'randomhb.puppetlabs.vm' {
   include aliases
   include users::admins
   
-$message = hiera('message')
+$message = hiera('nginx::docroot')
 notify { $message: }
   
 # if host is a vm...
