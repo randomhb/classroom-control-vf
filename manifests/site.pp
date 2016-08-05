@@ -51,6 +51,10 @@ node 'randomhb.puppetlabs.vm' {
   include aliases
   include users::admins
   
+  $message = hiera('message')
+  notify { $message }
+  
+  
 # if host is a vm...
 if $::is_virtual == 'true' {
   notify { "{$hostname} is virtual": }
