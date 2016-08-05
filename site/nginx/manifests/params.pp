@@ -8,6 +8,7 @@ class nginx::params {
       $confdir  = '/etc/nginx/'
       $servblock = "${confdir}/conf.d/"
       $logpath   = '/var/log/nginx/'
+      $user      = 'nginx'
     }
     'windows' : {
       $owner    = 'Administrator'
@@ -17,16 +18,10 @@ class nginx::params {
       $confdir  = 'C:/ProgramData/nginx/'
       $servblock = "${confdir}/conf.d/"
       $logpath   = "${confdir}/logs/"
+      $user      = 'nobody'
       }
       default : {
         fail("Module ${module_name} is not supported on ${::os['family']}")
       }
-      
-    $user = $::os['family'] ? {
-    'redhat'  => 'nginx',
-    'debian'  => 'web-data',
-    'windows' => 'nobody',
-    default => 'nobody',
-  }
     }
 }
