@@ -4,7 +4,7 @@ class nginx::params {
       $owner    = 'root'
       $group    = 'root'
       $package  = 'nginx'
-      $docroot  = '/var/www/'
+      #$docroot  = '/var/www/'
       $confdir  = '/etc/nginx/'
       $servblock = "${confdir}/conf.d/"
       $logpath   = '/var/log/nginx/'
@@ -14,7 +14,7 @@ class nginx::params {
       $owner    = 'Administrator'
       $group    = 'Administrators'
       $package  = 'nginx'
-      $docroot  = 'C:/ProgramData/nginx/html/'
+      #$docroot  = 'C:/ProgramData/nginx/html/'
       $confdir  = 'C:/ProgramData/nginx/'
       $servblock = "${confdir}/conf.d/"
       $logpath   = "${confdir}/logs/"
